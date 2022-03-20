@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,14 +9,25 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;400;600;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    
 </head>
-<body>
+<body class="dark:bg-slate-800 dark:text-slate=200">
     <h1 class="p-3 text-8xl font-bold text-blue-600 font-bold text-center my-10">
         Belajar Tailwind
     </h1>
+    <div class="flex justify-center">
+        <span class="text-sm text-slate-500 mr-2">Light</span>
+        <input type="checkbox" id="toggle" class="hidden">
+        <label for="toggle">
+            <div class="w-9 h-5 bg-slate-500 rounded-full 
+                flex items-center p-1 cursor-pointer">
+                <div class="w-4 h-4 bg-blue-50 rounded-full toggle-circle"></div>
+            </div>
+        </label>
+        <span class="text-sm text-slate-500 ml-2">Dark</span>
+    </div>
     <button class="bg-green-500 px-5 py-2 font-semibold text-white m-3 rounded shadow font-inter 
-        block mx-auto hover:bg-green-700 active:bg-green-900 focus:ring focus:ring-green-300">Ini Tombol</button>
+        block mx-auto hover:bg-green-700 active:bg-green-900 focus:ring focus:ring-green-300 
+        dark:bg-slate-300 dark:text-slate-800 dark:hover:text-slate-900 dark:hover:bg-slate-100">Ini Tombol</button>
     
     <div class="max-w-lg my-10 border border-slate-200 
         rounded-xl mx-auto p-5 shadow-md font-inter ">
@@ -110,6 +121,15 @@
         <div>01</div>
         <div>02</div>
         <div>03</div>
-      </div>
+    </div>
+
+    <script>
+        const checkbox = document.querySelector('#toggle');
+        const html = document.querySelector('html');
+
+        checkbox.addEventListener('click', function(){
+            checkbox.checked ? html.classList.add('dark') : html.classList.remove('dark');
+        })
+    </script>
 </body>
 </html>
